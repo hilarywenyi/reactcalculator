@@ -59,5 +59,5 @@ pipeline:
   variables:
     - name: DOCKER_REPO
       type: String
-      description: e.g. hilarywenyi/reactcalculator
+      description: hilarywenyi/reactcalculator
       value: <+input>
