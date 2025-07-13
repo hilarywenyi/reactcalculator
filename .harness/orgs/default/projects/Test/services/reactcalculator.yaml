@@ -1,0 +1,5 @@
+service:
+  name: reactcalculator
+  identifier: reactcalculator
+  orgIdentifier: default
+  projectIdentifier: Test
