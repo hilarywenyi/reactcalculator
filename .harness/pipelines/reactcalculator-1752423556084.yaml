@@ -24,15 +24,28 @@ pipeline:
                   name: install dependencies
                   spec:
                     command: npm install
-                  timeout: ""
+                  timeout: 10m
                   type: Run
               - step:
                   identifier: test
                   name: test
                   spec:
                     command: npm run test
-                  timeout: ""
+                  timeout: 10m
                   type: Run
+              - step:
+                  identifier: docker_build_push
+                  name: Build and Push Docker Image
+                  spec:
+                    connectorRef: dockerhub-connector
+                    repo: <+pipeline.variables.DOCKER_REPO>
+                    tags:
+                      - latest
+                      - <+codebase.commitSha>
+                    dockerfile: Dockerfile
+                    context: .
+                  timeout: 15m
+                  type: BuildAndPushDockerRegistry
           platform:
             arch: Amd64
             os: Linux
