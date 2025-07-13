@@ -41,7 +41,7 @@ pipeline:
                   name: Build and Push Docker Image
                   spec:
                     connectorRef: account.harnessImage
-                    repo: <+pipeline.variables.DOCKER_REPO>
+                    repo: hilarywenyi/reactcalculator
                     tags:
                       - latest
                       - <+codebase.commitSha>
