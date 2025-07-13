@@ -39,7 +39,7 @@ pipeline:
                     command: |
                       echo "=== Debug Info ==="
                       echo "Repository should be: hilarywenyi/reactcalculator"
-                      echo "Connector should be: account.hardnessImage"
+                      echo "Connector should be: dockerhubconnector"
                       echo "Current directory:"
                       ls -la
                       echo "Dockerfile exists?"
@@ -50,7 +50,7 @@ pipeline:
                   identifier: docker_build_push
                   name: Build and Push Docker Image
                   spec:
-                    connectorRef: account.harnessImage
+                    connectorRef: dockerhubconnector
                     repo: hilarywenyi/reactcalculator
                     tags:
                       - latest
