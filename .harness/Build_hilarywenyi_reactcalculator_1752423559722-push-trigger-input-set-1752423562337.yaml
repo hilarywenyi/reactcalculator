@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_hilarywenyi_reactcalculator_1752423559722-push-trigger-input-set
+  identifier: Build_hilarywenyi_reactcalculator_1752423559722pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Test
+  pipeline:
+    identifier: Build_hilarywenyi_reactcalculator_1752423559722
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
