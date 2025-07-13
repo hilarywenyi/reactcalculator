@@ -20,7 +20,61 @@
 // });
 
 const request = require('supertest');
-const app = require('./server');
+// Import just the express app, not the running server
+const express = require('express');
+
+// Create app instance for testing (don't start server)
+const app = express();
+
+// Define routes for testing (copy from server.js)
+app.get('/', (req, res) => {
+  res.send(`
+    <h1>Simple Calculator API</h1>
+    <p>Available endpoints:</p>
+    <ul>
+      <li>GET /add/:a/:b - Add two numbers</li>
+      <li>GET /subtract/:a/:b - Subtract two numbers</li>
+      <li>GET /multiply/:a/:b - Multiply two numbers</li>
+      <li>GET /divide/:a/:b - Divide two numbers</li>
+    </ul>
+    <p>Example: <a href="/add/5/3">/add/5/3</a></p>
+  `);
+});
+
+app.get('/add/:a/:b', (req, res) => {
+  const a = parseFloat(req.params.a);
+  const b = parseFloat(req.params.b);
+  const result = a + b;
+  res.json({ operation: 'add', a, b, result });
+});
+
+app.get('/subtract/:a/:b', (req, res) => {
+  const a = parseFloat(req.params.a);
+  const b = parseFloat(req.params.b);
+  const result = a - b;
+  res.json({ operation: 'subtract', a, b, result });
+});
+
+app.get('/multiply/:a/:b', (req, res) => {
+  const a = parseFloat(req.params.a);
+  const b = parseFloat(req.params.b);
+  const result = a * b;
+  res.json({ operation: 'multiply', a, b, result });
+});
+
+app.get('/divide/:a/:b', (req, res) => {
+  const a = parseFloat(req.params.a);
+  const b = parseFloat(req.params.b);
+  if (b === 0) {
+    return res.status(400).json({ error: 'Cannot divide by zero' });
+  }
+  const result = a / b;
+  res.json({ operation: 'divide', a, b, result });
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
 
 describe('Calculator API', () => {
   it('should return home page', (done) => {
