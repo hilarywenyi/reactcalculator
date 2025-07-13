@@ -53,3 +53,8 @@ pipeline:
             spec: {}
             type: Cloud
         type: CI
+  variables:
+    - name: DOCKER_REPO
+      type: String
+      description: e.g. hilarywenyi/reactcalculator
+      value: <+input>
