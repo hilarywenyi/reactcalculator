@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_hilarywenyi_reactcalculator_1752423559722-pr-trigger-input-set
+  identifier: Build_hilarywenyi_reactcalculator_1752423559722prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Test
+  pipeline:
+    identifier: Build_hilarywenyi_reactcalculator_1752423559722
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
