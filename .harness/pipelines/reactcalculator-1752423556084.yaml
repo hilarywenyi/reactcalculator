@@ -14,8 +14,11 @@ pipeline:
         identifier: build
         name: build
         spec:
-          caching:
-            enabled: true
+          enabled: true
+          key: npm-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+            - ~/.npm
           cloneCodebase: true
           execution:
             steps:
