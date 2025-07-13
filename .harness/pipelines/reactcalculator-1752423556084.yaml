@@ -36,7 +36,7 @@ pipeline:
                   identifier: docker_build_push
                   name: Build and Push Docker Image
                   spec:
-                    connectorRef: dockerhubconnector
+                    connectorRef: account.harnessImage
                     repo: hilarywenyi/reactcalculator
                     tags:
                       - latest
