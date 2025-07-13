@@ -47,8 +47,8 @@ pipeline:
                   timeout: 5m
                   type: Run
               - step:
-                  identifier: docker_build_push
-                  name: Build and Push Docker Image
+                  identifier: Build_and_push_to_Docker
+                  name: Build and push to Docker
                   spec:
                     connectorRef: dockerhubconnector
                     repo: hilarywenyi/reactcalculator
