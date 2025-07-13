@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactcalculator-service
+spec:
+  type: NodePort  # "Make it accessible from outside minikube"
+  ports:
+  - port: 80          # "External port people will use"
+    targetPort: 3000  # "Forward to my app's port 3000"
+  selector:
+    app: reactcalculator  # "Route traffic to pods with this label"

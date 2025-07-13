@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactcalculator  # Name of your deployment
+spec:
+  replicas: 2  # "Run 2 copies of my app for redundancy"
+  selector:
+    matchLabels:
+      app: reactcalculator  # "Find pods with this label"
+  template:
+    metadata:
+      labels:
+        app: reactcalculator  # "Tag my pods with this label"
+    spec:
+      containers:
+      - name: reactcalculator
+        image: hilarywenyi/reactcalculator:latest  # Your Docker image
+        ports:
+        - containerPort: 3000  # "My app listens on port 3000"
+        
