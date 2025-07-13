@@ -33,6 +33,20 @@ pipeline:
                   timeout: 10m
                   type: Run
               - step:
+                  identifier: debug_variables
+                  name: Debug Variables
+                  spec:
+                    command: |
+                      echo "=== Debug Info ==="
+                      echo "Repository should be: hilarywenyi/reactcalculator"
+                      echo "Connector should be: account.hardnessImage"
+                      echo "Current directory:"
+                      ls -la
+                      echo "Dockerfile exists?"
+                      ls -la Dockerfile
+                  timeout: 5m
+                  type: Run
+              - step:
                   identifier: docker_build_push
                   name: Build and Push Docker Image
                   spec:
