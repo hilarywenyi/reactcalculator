@@ -51,7 +51,7 @@ pipeline:
                   name: Build and push to Docker
                   spec:
                     connectorRef: dockerhubconnector
-                    repo: hilarywenyi/reactcalculator
+                    repo: <+pipeline.variables.DOCKER_REPO>
                     tags:
                       - latest
                       - <+codebase.commitSha>
@@ -70,4 +70,4 @@ pipeline:
     - name: DOCKER_REPO
       type: String
       description: hilarywenyi/reactcalculator
-      value: <+input>
+      value: <+input>.default("hilarywenyi/reactcalculator")
