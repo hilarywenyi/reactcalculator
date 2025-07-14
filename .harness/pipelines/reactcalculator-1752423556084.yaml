@@ -51,7 +51,7 @@ pipeline:
                   name: Build and push to Docker
                   spec:
                     connectorRef: dockerhubconnector
-                    repo: DOCKER_REPO
+                    repo: hilarywenyi/reactcalculator
                     tags:
                       - latest
                       - <+codebase.commitSha>
