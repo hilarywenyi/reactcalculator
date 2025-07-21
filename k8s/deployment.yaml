@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: reactcalculator  # Name of your deployment
 spec:
-  replicas: 2  # "Run 2 copies of my app for redundancy"
+  replicas: 10  # "Run 2 copies of my app for redundancy"
   selector:
     matchLabels:
       app: reactcalculator  # "Find pods with this label"
