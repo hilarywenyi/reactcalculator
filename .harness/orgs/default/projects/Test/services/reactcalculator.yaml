@@ -1,0 +1,24 @@
+service:
+  name: reactcalculator
+  identifier: reactcalculator
+  orgIdentifier: default
+  projectIdentifier: Test
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: reactcalculator
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: harness_gitconnector
+                  gitFetchType: Branch
+                  paths:
+                    - k8s/deployment.yaml
+                    - k8s/service.yaml
+                  branch: master
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+    type: Kubernetes
