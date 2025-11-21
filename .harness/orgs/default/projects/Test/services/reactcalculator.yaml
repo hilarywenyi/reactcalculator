@@ -16,8 +16,12 @@ service:
                   connectorRef: harness_gitconnector
                   gitFetchType: Branch
                   paths:
-                    - .harness/orgs/default/projects/Test/services/reactcalculator.yaml
+                    - k8s/deployment.yaml
+                    - k8s/service.yaml
                   branch: master
+              valuesPaths:
+                - deployment.yaml
+                - service.yaml
               skipResourceVersioning: false
               enableDeclarativeRollback: false
               optionalValuesYaml: false
