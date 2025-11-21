@@ -3,7 +3,21 @@ service:
   identifier: deployCalculator
   serviceDefinition:
     type: Kubernetes
-    spec: {}
+    spec: 
+       manifests:
+          - manifest:
+                    identifier: k8s-manifests
+                    type: K8sManifest
+                    spec:
+                      store:
+                        type: Github
+                        spec:
+                            connectorRef: harness_gitconnector
+                            gitFetchType: Branch
+                            paths:
+                                - k8s/
+                            repoName: reactcalculator
+                            branch: master
   gitOpsEnabled: false
   orgIdentifier: default
   projectIdentifier: Test
