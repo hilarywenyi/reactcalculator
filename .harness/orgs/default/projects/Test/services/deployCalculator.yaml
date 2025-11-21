@@ -6,7 +6,7 @@ service:
     spec: 
        manifests:
           - manifest:
-                    identifier: k8s-manifests
+                    identifier: k8smanifests
                     type: K8sManifest
                     spec:
                       store:
