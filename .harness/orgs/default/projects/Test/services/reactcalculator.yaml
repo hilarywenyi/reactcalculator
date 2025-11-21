@@ -4,5 +4,21 @@ service:
   orgIdentifier: default
   projectIdentifier: Test
   serviceDefinition:
-    spec: {}
+    spec:
+      manifests:
+        - manifest:
+            identifier: reactcalculator
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: harness_gitconnector
+                  gitFetchType: Branch
+                  paths:
+                    - k8s/deployment.yaml
+                  branch: master
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+              optionalValuesYaml: false
     type: Kubernetes
